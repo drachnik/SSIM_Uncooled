@@ -1,10 +1,10 @@
-function custom_ssim()
+function ssim_value = image_ssim(file1, file2)
     % Read the 16-bit binary images
-    [img1, width, height] = read_16bit_binary_image('path/to/your/16bit_binary_image1.bin');
-    [img2, ~, ~] = read_16bit_binary_image('path/to/your/16bit_binary_image2.bin');
+    [img1, width1, height1] = read_16bit_binary_image(file1);
+    [img2, width2, height2] = read_16bit_binary_image(file2);
 
     % Ensure the images have the same dimensions
-    if width ~= size(img2, 2) || height ~= size(img2, 1)
+    if width1 ~= width2 || height1 ~= height2
         error('Images must have the same dimensions');
     end
 
